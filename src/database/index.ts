@@ -1,8 +1,6 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes, Model } from "sequelize";
 
-const sequelize = new Sequelize(
-  "postgresql://ADA_owner:zLZtUXG90HoM@ep-wandering-breeze-a55wde5x.us-east-2.aws.neon.tech/ADA?sslmode=require"
-);
+const sequelize = new Sequelize("process.env.DB_URI");
 
 async function authenticate() {
   try {
@@ -14,4 +12,4 @@ async function authenticate() {
 }
 authenticate();
 export default sequelize;
-export { DataTypes };
+export { DataTypes, Model };
